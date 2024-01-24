@@ -4,12 +4,11 @@ public:
     {
         int n=nums.size();
        vector<int>v;
-       int r=k%n;
-       for(int i=n-r;i<n;i++)
+       for(int i=n-(k%n);i<n;i++)
        {
            v.push_back(nums[i]);
        }
-       nums.erase(nums.begin()+(n-r),nums.end());
+       nums.erase(nums.begin()+(n-(k%n)),nums.end());
        for(int i=0;i<v.size();i++)
        {
         nums.insert(nums.begin()+i,v[i]);
