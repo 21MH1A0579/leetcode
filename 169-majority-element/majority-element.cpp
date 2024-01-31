@@ -7,15 +7,19 @@ public:
         for(int i=0;i<n;i++)
         {
             mp[nums[i]]++;
-        }
-        int k=nums.size()/2;
-        for(auto it:mp)
-        {
-            if(it.second>k)
+            if(mp[nums[i]]>n/2)
             {
-                return it.first;
+                return nums[i];
             }
         }
+        // int k=nums.size()/2;
+        // for(auto it:mp)
+        // {
+        //     if(it.second>k)
+        //     {
+        //         return it.first;
+        //     }
+        // }
         return 0;
     };
 
