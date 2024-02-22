@@ -1,22 +1,20 @@
 class Solution {
 public:
-    int findJudge(int n, vector<vector<int>>& trust) {
-        map<int, int> mp;
-        vector<int> arr(n, 0);
+    int findJudge(int n, vector<vector<int>>& trust) 
+    {
+        if(n==1) return 1;
+        map<int,int>mp;
+        map<int,int>mp1;
         for(int i=0;i<trust.size();i++)
         {
             mp[trust[i][1]]++;
-            arr[trust[i][0]-1]=1;
+            mp1[trust[i][0]]++;
         }
-        for(int i=0;i<n;i++)
+        for(auto it:mp)
         {
-            if(arr[i]==0 &&mp[i+1]==n-1)
-            {
-                return i+1;
-            }
+            if(it.second==n-1 && mp1.find(it.first)==mp1.end()) return it.first;
         }
         return -1;
-
-        return -1;
+        
     }
 };
