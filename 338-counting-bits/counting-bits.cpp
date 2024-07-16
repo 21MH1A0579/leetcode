@@ -3,12 +3,11 @@ public:
  int setbitcount(int n)
  {
      int c=0;
-    while(n){
-        if(n&1>=1){
-            c++;
-        }
-        n>>=1;
-    }
+     while(n)
+     {
+         n=n&(n-1);
+         c++;
+     }
      return c;
  }
     vector<int> countBits(int n)
